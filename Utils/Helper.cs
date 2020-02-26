@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Text;
 
 namespace Desafio02.Utils
 {
@@ -25,10 +23,13 @@ namespace Desafio02.Utils
             return sb.ToString();
         }
 
-        public static string GetPath(int page = 0, string link = "")
+        public static string GetPath(string fileName)
         {
             StringBuilder sb = new StringBuilder();
-            return sb.Append(@"C:\Temp\").ToString();
+            sb.Append(@"C:\Temp\")
+                .Append(fileName);
+
+            return sb.ToString();
         }
     }
 }

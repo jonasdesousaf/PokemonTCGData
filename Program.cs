@@ -76,10 +76,10 @@ namespace Desafio02
 
         static async Task CreateSingleFile(BlockingCollection<Pokemon> list)
         {
-            using (StreamWriter file = File.CreateText(@"C:\Temp\single_file_pokemons.json"))
+            using (StreamWriter file = File.CreateText(Helper.GetPath("single_file_pokemons.json")))
             {
                 var json = JsonSerializer.Serialize(list);
-                 await file.WriteAsync(json);
+                await file.WriteAsync(json);
             }
         }
 
@@ -87,7 +87,7 @@ namespace Desafio02
         {
             foreach (var pokemon in list)
             {
-                using (StreamWriter file = File.CreateText(@"C:\Temp\multiple_file_" + pokemon.Description + ".json"))
+                using (StreamWriter file = File.CreateText(Helper.GetPath("multiple_file_" + pokemon.Description + ".json")))
                 {
                     var json = JsonSerializer.Serialize(pokemon);
                     await file.WriteAsync(json);
